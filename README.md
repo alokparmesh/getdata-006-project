@@ -1,6 +1,7 @@
 # Getting and Cleaning Data Course Project
 
-Script works using following steps :-
+## Script works using following steps
+
 1. It reads the .txt files for training and test data for X,Y and Subject and then merges them row wise using rbind.
 2. It reads the features and activity text files.
 3. It uses str_detect to identify features which are mean() or std().
