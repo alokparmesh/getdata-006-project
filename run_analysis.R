@@ -17,7 +17,7 @@ features <- read.table("UCI HAR Dataset\\features.txt",header=FALSE)
 activity <- read.table("UCI HAR Dataset\\activity_labels.txt",header=FALSE)
 
 #getting only mean or std feature positions
-meanOrstd <- str_detect(features$V2, "-mean()") | str_detect(features$V2, "-std()")
+meanOrstd <- str_detect(features$V2, "-mean\\(") | str_detect(features$V2, "-std\\(")
 
 # Only retaining mean or std features in observation and naming columns using feature name
 xall <- xall[,meanOrstd]
@@ -34,3 +34,5 @@ tidydata <- aggregate(. ~ activity + subject, data = xall, mean)
 
 # write tidy data
 write.table(tidydata,file="tidydata.txt", row.name=FALSE)
+
+str(tidydata)
